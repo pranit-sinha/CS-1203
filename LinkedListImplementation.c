@@ -12,8 +12,9 @@ nodeAddress generateLinkedList() {
     int n;
     printf("Enter number of list elements. ");
     scanf("%d", &n);
-    nodeAddress head = malloc(sizeof(node));
+    nodeAddress head = NULL;
     if(n>0) {
+        head = malloc(sizeof(node));
         printf("Enter element in position 1. ");
         scanf("%d", &head->val);
         head->next = NULL;
@@ -31,7 +32,7 @@ nodeAddress generateLinkedList() {
 
 void printLinkedList(nodeAddress head) {
     nodeAddress c;
-    for (c = head ; c->next != NULL; c = c->next) {
+    for (c = head ; c != NULL; c = c->next) {
         printf(c==head?"%d":", %d", c->val);
     }
 }
