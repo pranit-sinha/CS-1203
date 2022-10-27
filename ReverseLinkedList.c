@@ -27,24 +27,33 @@ nodeAddress generateLinkedList(int n) {
     return head;
 }
 
-void chunkReverse (nodeAddress head, k) {}
+nodeAddress reverseLinkedList(nodeAddress head) {
+    nodeAddress current = head;
+    head = NULL;
+    while (current!=NULL) {
+        nodeAddress temp = current;
+        current = current->next;
+        temp-> next = head;
+        head = temp;
+    }
+    return head;
+}
 
 void printLinkedList(nodeAddress head) {
     nodeAddress c;
     for (c = head ; c != NULL; c = c->next) {
         printf(c==head?"%d":", %d", c->val);
     }
+    printf("\n");
 }
 
 int main (int argc, char** argv) { 
-    printf("Enter number of list elements.");
+    int n;
+    printf("Enter number of list elements: ");
     scanf("%d",&n);
-    nodeAddress headOfList = generateLinkedList();
+    nodeAddress headOfList = generateLinkedList(n);
     printLinkedList(headOfList);
-    printf("Enter size of chunks within which elements will be reversed.");
-    int k;
-    scanf("%d",&k);
-    chunkReverse(headOfList, k);
-    printLinkedList(head);
+    nodeAddress newHead = reverseLinkedList(headOfList);
+    printLinkedList(newHead);
 }
 
