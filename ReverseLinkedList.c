@@ -47,6 +47,15 @@ void printLinkedList(nodeAddress head) {
     printf("\n");
 }
 
+void freeLinkedList(nodeAddress head) {
+    nodeAddress previous;
+    while (head) {
+        previous = head;
+        head = head->next;
+        free(previous);
+    }
+}
+
 int main (int argc, char** argv) { 
     int n;
     printf("Enter number of list elements: ");
@@ -55,5 +64,6 @@ int main (int argc, char** argv) {
     printLinkedList(headOfList);
     nodeAddress newHead = reverseLinkedList(headOfList);
     printLinkedList(newHead);
+    freeLinkedList(newHead);
 }
 
