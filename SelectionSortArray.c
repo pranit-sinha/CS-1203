@@ -8,14 +8,14 @@ void fillArray(int * a, int n) {
     }
 }
 
-int findIndexOfMax (int * a, int n) {
-    int max;
-    if (n<1) { return 0;}
-    max = 0;
-    for (int i = 1; i<n; i++) {
-        if ( a[i] > a[max] ) {
-            max = i;
-        }
+int findAddressOfMax (int * a, int n) {
+    int * max = NULL;
+    if (n>=1) { 
+        max = a;
+        for (int i = 1; i<n; i++) {
+            if ( *(a+i) > *(a+max) ) {
+                max = i;
+            }
     }
     return max;
 }
@@ -23,7 +23,7 @@ int findIndexOfMax (int * a, int n) {
 void selectionSort (int * a, int n) {
     int max, temp;
     for (int i = n; i>1; i=i-1) {
-        max     = findIndexOfMax(a, i);
+        max     = findAddressofMax(a, i);
         temp    = a[max];
         a[max]  = a[i-1];
         a[i-1]  = temp;
@@ -35,6 +35,7 @@ void printArray(int * a, int n) {
     for (int i = 1; i<n; i++) {
         printf(", %d", a[i]);
     }
+    printf("\n");
 }
 
 int main (int argc, char** argv) {
@@ -43,5 +44,7 @@ int main (int argc, char** argv) {
     scanf("%d",&n);
     int a[n];
     fillArray(a, n);
+    printArray(a, n);
+    selectionSort(a, n);
     printArray(a, n);
 }
