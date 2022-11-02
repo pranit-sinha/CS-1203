@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wall
+CFLAGS=-Wall -std=c99
 
 helloworld: hello_world.c
-	gcc -std=c99 hello_world.c -o exe/hello
+	$(CC) hello_world.c -o exe/hello
