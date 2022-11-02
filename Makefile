@@ -11,4 +11,4 @@ build:
 	mkdir -p $(BUILD)
 
 clean:
-	rm -f $(BUILD)/$(TARGET)
+	rm -rf $(BUILD) $(OBJFILES)
