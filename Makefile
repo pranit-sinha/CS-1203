@@ -1,5 +1,14 @@
-CC=gcc
-CFLAGS=-Wall -std=c99
+CC			= gcc
+CFLAGS		= -Wall -std=c99
+OBJFILES	= LinkedList.o ReverseLinkedList.o
+TARGET		= reverse
+BUILD		= build
 
-helloworld: hello_world.c
-	$(CC) hello_world.c -o exe/hello
+$(BUILD)/$(TARGET): $(OBJFILES) 
+	$(CC) $(CFLAGS) -o $(BUILD)/$(TARGET) $(OBJFILES)  
+
+build:
+	mkdir -p $(BUILD)
+
+clean:
+	rm -f $(BUILD)/$(TARGET)
