@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "Array.h"
 
 int findAddressOfMax (int * a, int n) {
@@ -5,17 +7,18 @@ int findAddressOfMax (int * a, int n) {
     if (n>=1) { 
         max = a;
         for (int i = 1; i<n; i++) {
-            if ( *(a+i) > *(a+max) ) {
+            if ( (*a)+i > (*a)+max ) {
                 max = i;
             }
-    }
+        }
     return max;
+    }
 }
 
 void selectionSort (int * a, int n) {
     int max, temp;
     for (int i = n; i>1; i=i-1) {
-        max     = findAddressofMax(a, i);
+        max     = findAddressOfMax(a, i);
         temp    = a[max];
         a[max]  = a[i-1];
         a[i-1]  = temp;
