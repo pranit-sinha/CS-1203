@@ -8,14 +8,15 @@ nodeAddress reverseLinkedList(nodeAddress head) {
     while (current!=NULL) {
         nodeAddress temp = current;
         current = current->next;
-        temp-> next = head;
+        temp->next = head;
         head = temp;
     }
     return head;
 }
 
 int main (int argc, char** argv) { 
-    int n = inputSize();
+    char * string = "Enter size of the list: ";
+    int n = input(string);
     nodeAddress headOfList = generateLinkedList(n);
     printLinkedList(headOfList);
     nodeAddress newHead = reverseLinkedList(headOfList);

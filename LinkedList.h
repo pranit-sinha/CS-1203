@@ -11,6 +11,6 @@ typedef struct node * nodeAddress;
 nodeAddress generateLinkedList(int n);
 void printLinkedList(nodeAddress head);
 void freeLinkedList(nodeAddress head);
-int inputSize();
+int input();
 
 #endif

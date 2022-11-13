@@ -38,9 +38,9 @@ void freeLinkedList(nodeAddress head) {
     }
 }
 
-int inputSize() {
+int input(char * string) {
     int n;
-    printf("Enter number of list elements. ");
+    printf("%s\n", string);
     scanf("%d", &n);
     return n;
 }
