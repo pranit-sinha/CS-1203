@@ -16,12 +16,15 @@ int findAddressOfMax (int * a, int n) {
 }
 
 void selectionSort (int * a, int n) {
-    int * maxAdd, temp;
+    int * maxAdd;
+    int temp;
     for (int i = n; i>1; i=i-1) {
         maxAdd  = findAddressOfMax(a, i);
-        //temp    = *maxAdd;
-        //*maxAdd = a[i-1];
-        //a[i-1]  = temp;
+        temp = *maxAdd;
+       // *maxAdd   = a[i-1];
+       // a[i-1]  = temp;
+        printf("The max element is %p\n", maxAdd);
+       // printf("The max element is %d\n", temp);
     }
 }
 
@@ -30,11 +33,5 @@ int main (int argc, char** argv) {
     int a[n];
     fillArray(a, n);
     printArray(a, n);
-    //selectionSort(a, n);
-    int * k = findAddressOfMax(a,n);
-    for(int i=0;i<n;i++) {
-        printf("Address of element %d is %p\n", (i+1), (void *)&a[i]);
-    }
-    printf("Largest element is at address %p\n", (void *)k);
-    //printArray(a, n);
-}
+    selectionSort(a, n);
+    printArray(a, n); }
