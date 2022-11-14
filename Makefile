@@ -1,6 +1,6 @@
 CC			= gcc
 CFLAGS		= -Wall -std=c99
-OBJFILES	= LinkedList.o Array.o LinkedListImplementation.o ReverseLinkedList.o SelectionSortArray.o SelectionSortLinkedList.o ChunkReverseLinkedList.o 
+OBJFILES	= LinkedList.o Array.o LinkedListImplementation.o ReverseLinkedList.o SelectionSortArray.o SelectionSortLinkedList.o ChunkReverseLinkedList.o Sort.o bst.o SelSort.o
 BUILD		= build
 
 implement: LinkedList.o LinkedListImplementation.o
@@ -17,6 +17,9 @@ sellink: LinkedList.o SelectionSortLinkedList.o
 
 selarr: Array.o SelectionSortArray.o
 	make build && $(CC) $(CFLAGS) -o $(BUILD)/selectarr Array.o SelectionSortArray.o
+
+bst: Array.o SelSort.o bst.o
+	make build && $(CC) $(CFLAGS) -o $(BUILD)/bst Array.o SelSort.o bst.o
 
 build:
 	mkdir -p $(BUILD)
