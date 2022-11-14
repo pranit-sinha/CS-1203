@@ -1,6 +1,6 @@
 #include <stdio.h> 
 #include <stdlib.h> 
-#include "LinkedList.h"
+#include "headers/LinkedList.h"
  
 nodeAddress chunkReverse(nodeAddress head, int k) {
     nodeAddress current = head;

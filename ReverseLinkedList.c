@@ -1,6 +1,6 @@
 #include <stdio.h> 
 #include <stdlib.h> 
-#include "LinkedList.h"
+#include "headers/LinkedList.h"
 
 nodeAddress reverseLinkedList(nodeAddress head) {
     nodeAddress current = head;

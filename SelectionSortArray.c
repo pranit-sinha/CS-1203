@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "Array.h"
+#include "headers/Array.h"
 
 int findAddressOfMax (int * a, int n) {
     int * maxAddress = NULL;

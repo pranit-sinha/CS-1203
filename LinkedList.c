@@ -1,6 +1,6 @@
 #include <stdio.h> 
 #include <stdlib.h> 
-#include "LinkedList.h"
+#include "headers/LinkedList.h"
 
 nodeAddress generateLinkedList(int n) {
     nodeAddress head = NULL;

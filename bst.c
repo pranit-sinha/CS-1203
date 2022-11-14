@@ -1,6 +1,6 @@
 #include <stdio.h> 
 #include <stdlib.h> 
-#include "Array.h"
+#include "headers/Array.h"
 
 struct node {
     int val;

@@ -1,9 +1,9 @@
 #include <stdio.h> 
 #include <stdlib.h> 
-#include "LinkedList.h"
+#include "headers/LinkedList.h"
  
 int main (int argc, char** argv) { 
-    char * string = "Enter size of string: ";
+    char * string = "Enter size of List: ";
     int n = input(string);
     nodeAddress headOfList = generateLinkedList(n);
     printLinkedList(headOfList);

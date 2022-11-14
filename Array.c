@@ -1,6 +1,6 @@
 #include <stdio.h> 
 #include <stdlib.h> 
-#include "Array.h"
+#include "headers/Array.h"
 
 void fillArray(int * a, int n) {
     for (int i = 0; i < n; i++) {
