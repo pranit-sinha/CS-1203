@@ -10,14 +10,13 @@ struct node {
 
 typedef struct node * nodeAddress;
 
-nodeAddress generateBSTFromArray(int * arr, int a, int b, nodeAddress root) {
+nodeAddress generateBSTFromArray(int * arr, int a, int b)  {
     if(a>b) { return NULL;}
     int c = (a+b)/2;
-    if (root==NULL) {
-        root->val = arr[c];
-    }
-    root->left = generateBSTFromArray(arr, a, c-1, root->left);
-    root->right = generateBSTFromArray(arr, c+1, b, root->right);
+    nodeAddress root = malloc(sizeof(struct node));
+    root->val = arr[c];
+    root->left = generateBSTFromArray(arr, a, c-1);
+    root->right = generateBSTFromArray(arr, c+1, b);
     return root;
 }
 
@@ -33,8 +32,7 @@ int main (int argc, char** argv) {
     int arr[n];
     fillArray(arr, n);
     selectionSort(arr, n);
-    nodeAddress root = NULL;
-    root = generateBSTFromArray(arr, 0, n-1, root);
+    nodeAddress root = generateBSTFromArray(arr, 0, n-1);
     printBST(root, 0);
 }
 
