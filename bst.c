@@ -20,11 +20,11 @@ nodeAddress generateBSTFromArray(int * arr, int a, int b)  {
     return root;
 }
 
-void printBST(nodeAddress root, int height) {
+void printBST(nodeAddress root) {
     if (root == NULL) {return;}
-    printBST(root->left, height + 1);
+    printBST(root->left);
     printf("%d\n", root->val);
-    printBST(root->right, height + 1);
+    printBST(root->right);
 }
  
 int main (int argc, char** argv) { 
@@ -33,7 +33,7 @@ int main (int argc, char** argv) {
     fillArray(arr, n);
     selectionSort(arr, n);
     nodeAddress root = generateBSTFromArray(arr, 0, n-1);
-    printBST(root, 0);
+    printBST(root);
 }
 
 
