@@ -22,8 +22,8 @@ nodeAddress generateBSTFromArray(int * arr, int a, int b)  {
 
 void printBST(nodeAddress root, int height) {
     if (root == NULL) {return;}
-    printf("%d\n", root->val);
     printBST(root->left, height + 1);
+    printf("%d\n", root->val);
     printBST(root->right, height + 1);
 }
  
