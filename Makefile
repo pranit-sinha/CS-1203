@@ -27,6 +27,9 @@ bst: Array.o SelSort.o bst.o
 bstdel: Array.o SelSort.o bstdelete.o
 	make build && $(CC) $(CFLAGS) -o $(BUILD)/bstdel Array.o SelSort.o bstdelete.o
 
+heap: Array.o heap.o
+	make build && $(CC) $(CFLAGS) -o $(BUILD)/heap Array.o heap.o 
+
 build:
 	mkdir -p $(BUILD)
 
