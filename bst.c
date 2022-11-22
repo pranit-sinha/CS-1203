@@ -27,6 +27,7 @@ void printBST(nodeAddress root) {
     printBST(root->right);
 }
  
+
 int main (int argc, char** argv) { 
     int n = inputSizeArray();
     int arr[n];
@@ -35,6 +36,3 @@ int main (int argc, char** argv) {
     nodeAddress root = generateBSTFromArray(arr, 0, n-1);
     printBST(root);
 }
-
-
-
