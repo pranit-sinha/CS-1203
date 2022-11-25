@@ -1,6 +1,6 @@
 CC			= gcc
 CFLAGS		= -Wall -std=c99
-OBJFILES	= LinkedList.o Array.o LinkedListImplementation.o ReverseLinkedList.o SelectionSortArray.o SelectionSortLinkedList.o ChunkReverseLinkedList.o bst.o SelSort.o bstdelete.o
+OBJFILES	= LinkedList.o Array.o LinkedListImplementation.o ReverseLinkedList.o SelectionSortArray.o SelectionSortLinkedList.o ChunkReverseLinkedList.o bst.o SelSort.o bstdelete.o heap.o
 BUILD		= build
 
 all: LinkedList.o Array.o LinkedListImplementation.o ReverseLinkedList.o SelectionSortArray.o SelectionSortLinkedList.o ChunkReverseLinkedList.o bst.o SelSort.o
