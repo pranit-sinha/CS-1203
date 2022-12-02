@@ -1,14 +1,8 @@
 #include <stdio.h> 
 #include <stdlib.h> 
 #include "headers/Array.h"
-
-struct node {
-    int val;
-    struct node * left;
-    struct node * right;
-};
-
-typedef struct node * nodeAddress;
+#include "headers/BST.h"
+#include "headers/Sort.h"
 
 nodeAddress generateBSTFromArray(int * arr, int a, int b)  {
     if(a>b) { return NULL;}
