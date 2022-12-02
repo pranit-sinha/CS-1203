@@ -21,6 +21,9 @@ sellink: LinkedList.o SelectionSortLinkedList.o
 selarr: Array.o Sort.o SelectionSortArray.o
 	make build && $(CC) $(CFLAGS) -o $(BUILD)/selectarr Array.o Sort.o SelectionSortArray.o
 
+insarr: Array.o InsertionSortArray.o
+	make build && $(CC) $(CFLAGS) -o $(BUILD)/insertarr Array.o InsertionSortArray.o
+
 bst: Array.o Sort.o bst.o
 	make build && $(CC) $(CFLAGS) -o $(BUILD)/bst Array.o Sort.o bst.o
 
