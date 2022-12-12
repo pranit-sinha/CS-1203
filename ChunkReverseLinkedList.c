@@ -3,17 +3,27 @@
 #include "headers/LinkedList.h"
  
 nodeAddress chunkReverse(nodeAddress head, int k) {
-    nodeAddress current = head;
-    head = NULL;
-    int count = 1;
-    while (count<=k && current!=NULL) {
-        nodeAddress temp = current;
-        current = current->next;
-        temp->next = head;
-        head = temp;
-        count++;
+    nodeAddress prev = head;
+    if (head) {
+        nodeAddress current = head;
+        nodeAddress next = NULL;
+        prev = NULL;
+        int count = 0;
+
+        while (current && count < k) {
+            next            = current->next;
+            current->next   = prev;
+            prev = current;
+            current = next;
+            count++;
+        }
+
+        if (next) {
+            head->next = chunkReverse(next, k);
+        }
     }
-    return head;
+
+    return prev;
 }
 
 int main (int argc, char** argv) {
@@ -28,4 +38,3 @@ int main (int argc, char** argv) {
     freeLinkedList(newHead);
 	return 0; 
 }
-
