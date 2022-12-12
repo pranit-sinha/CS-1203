@@ -22,25 +22,51 @@
 //    }
 //}
 
-void insertNode(nodeAddress n, nodeAddress tail) {
-    if (tail==NULL| n->val <= tail->val) {
-        n->next = tail;
-        tail = n;
+//void insertNode(nodeAddress n, nodeAddress tail) {
+//    if (tail==NULL| n->val <= tail->val) {
+//        n->next = tail;
+//        tail = n;
+//    }
+//    else {
+//        insertNode(n, tail->next);
+//    }
+//}
+//
+//void insertionSort(nodeAddress head) {
+//    if (head) {
+//        nodeAddress tail = head->next;
+//        insertionSort(tail);
+//        insertNode(head, tail);
+//    }
+//}
+
+void insert(nodeAddress node, nodeAddress sorted) {
+    if (sorted==NULL || sorted->val >= node->val) {
+        node->next = sorted;
+        sorted = node;
     }
     else {
-        insertNode(n, tail->next);
+        nodeAddress current = sorted;
+        while (current->next != NULL && current->next->val < node->val) {
+            current = current->next;
+        }
+        node->next      = current->next;
+        current->next   = node;
     }
 }
 
 void insertionSort(nodeAddress head) {
-    if (head) {
-        nodeAddress tail = head->next;
-        insertionSort(tail);
-        insertNode(head, tail);
+    nodeAddress current = head;
+    nodeAddress sorted = NULL;
+    while (current) {
+        nodeAddress next = current->next;
+        insert(current, sorted);
+        current = next;
     }
+    head = sorted;
 }
  
-int main (int argc, char** argv) { 
+int main (int argc, char** argv) {
     int n = input();
     nodeAddress head = generateLinkedList(n);
     printLinkedList(head);
