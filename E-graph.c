@@ -68,12 +68,10 @@ int add(EGraph* egraph, ENode* node) {
         bool same = true;
 
         for (int j = 0; j < egraph->hashcons.nodes[i]->size; j++) {
-
           if (egraph->hashcons.nodes[i]->eclass_ids[j] != node->eclass_ids[j]) {
             same = false;
             break;
           }
-
         }
 
         if (same) {
@@ -158,10 +156,7 @@ EMatchingResult eMatch(EGraph* egraph, ENode* pattern) {
               same = false;
               break;
             }
-
-
           }
-
           else {
             result.substitutions[j] = egraph->hashcons.nodes[i]->eclass_ids[j];
           }
