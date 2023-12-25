@@ -2,43 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-
-/*
- * Definitions of structures used.
- */
-
-// Struct for an e-node
-typedef struct {
-  int size;
-  char* function_symbol;
-  int* eclass_ids;
-} ENode;
-
-// Struct for an e-class
-typedef struct {
-  ENode* nodes;
-  int size;
-} EClass;
-
-// Union-find structure for e-class IDs
-typedef struct {
-  int* parent;
-  int* rank;
-} UnionFind;
-
-// Hash table for mapping canonical e-nodes to e-class IDs
-typedef struct {
-  ENode** nodes;
-  int* eclass_ids;
-  int size;
-} HashCons;
-
-// E-graph struct
-typedef struct {
-  UnionFind uf;
-  HashCons hashcons;
-  EClass* eclass_map;
-} EGraph;
+#include "headers/Egraph.h"
 
 /*
  * Functions 
@@ -132,10 +96,6 @@ void merge(EGraph* egraph, int x, int y) {
 // Perform e-matching on the e-graph
 // Returns a tuple of substitutions and e-class IDs for nodes that match the pattern
 // The substitution map maps variables in the pattern to e-class IDs in the e-graph
-typedef struct {
-  int* substitutions;
-  int eclass_id;
-} EMatchingResult;
 
 EMatchingResult eMatch(EGraph* egraph, ENode* pattern) {
   EMatchingResult result;
