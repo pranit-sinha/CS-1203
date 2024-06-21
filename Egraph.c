@@ -8,7 +8,7 @@
  * Functions 
  */
 
-// Initialize an e-graph
+// Init structure
 EGraph* buildEGraph(int num_nodes) {
 
   EGraph* egraph = malloc(sizeof(EGraph));
@@ -22,9 +22,8 @@ EGraph* buildEGraph(int num_nodes) {
   return egraph;
 }
 
-// Add an e-node to the e-graph
+// Add e-node to graph and corresponding hash table
 int add(EGraph* egraph, ENode* node) {
-  // Check if the node already exists in the hash table
   for (int i = 0; i < egraph->hashcons.size; i++) {
 
     if (egraph->hashcons.nodes[i]) {
@@ -46,7 +45,7 @@ int add(EGraph* egraph, ENode* node) {
     }
   }
 
-  // Add the node to the hash table and create a new e-class for it
+  // create e-class for added node
   for (int i = 0; i < egraph->hashcons.size; i++) {
 
     if (egraph->hashcons.nodes[i] == NULL) {
@@ -64,7 +63,6 @@ int add(EGraph* egraph, ENode* node) {
   return -1;
 }
 
-// Find the e-class ID for a given e-class ID
 int find(EGraph* egraph, int x) {
 
   if (egraph->uf.parent[x] != x) {
@@ -74,7 +72,6 @@ int find(EGraph* egraph, int x) {
   return egraph->uf.parent[x];
 }
 
-// Merge two e-classes with e-class IDs x and y
 void merge(EGraph* egraph, int x, int y) {
 
   int xroot = find(egraph, x);
@@ -142,7 +139,6 @@ int main(int argc, char** argv) {
   scanf("%d", &num_nodes);
   EGraph *egraph = buildEGraph(num_nodes);
 
-  // Create some e-nodes and add them to the e-graph
   ENode node1;
   printf("Enter function symbol.");
   node1.function_symbol = "f";
@@ -167,10 +163,8 @@ int main(int argc, char** argv) {
   node3.size = 1;
   int eclass_id3 = add(egraph, &node3);
 
-  // Merge e-classes 1 and 2
   merge(egraph, eclass_id1, eclass_id2);
 
-  // Perform e-matching on the e-graph
   ENode pattern1;
   pattern1.function_symbol = "f";
   pattern1.eclass_ids = malloc(sizeof(int) * 2);
@@ -184,7 +178,7 @@ int main(int argc, char** argv) {
   ENode pattern2;
   pattern2.function_symbol = "g";
   pattern2.eclass_ids = malloc(sizeof(int) * 1);
-  pattern2.eclass_ids[0] = -1; // Variable
+  pattern2.eclass_ids[0] = -1; 
   pattern2.size = 1;
   EMatchingResult result2 = eMatch(egraph, &pattern2);
   printf("E-class ID: %d\n", result2.eclass_id);
